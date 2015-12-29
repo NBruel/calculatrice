@@ -1,31 +1,21 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <link type="text/css" rel="stylesheet" href="css/style.css" />
-    <body>
-        <div id="container">
+	<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+  </head>
+    <body ng-app="calculatrice">
+        <div id="container" ng-controller="calculatriceController as main">
             <div id="calculator">
                 <div id="header">
-                    <input type="text" id="number" value="0" autocomplete="off" disabled />
+                    <input type="text" id="number" ng-model="calcValue" autocomplete="off" disabled />
                 </div>
                 <div id="body">
-                    <div class="buttons">7</div>
-                    <div class="buttons">8</div>
-                    <div class="buttons">9</div>
-                    <div class="buttons">/</div>
-                    <div class="buttons">4</div>
-                    <div class="buttons">5</div>
-                    <div class="buttons">6</div>
-                    <div class="buttons">*</div>
-                    <div class="buttons">1</div>
-                    <div class="buttons">2</div>
-                    <div class="buttons">3</div>
-                    <div class="buttons">-</div>
-                    <div class="buttons">0</div>
-                    <div class="buttons">.</div>
-                    <div class="buttons">=</div>
-                    <div class="buttons">+</div>
+                	<div ng-repeat="button in buttons" style="display:inline">
+                		<div class="buttons" data-ng-click="addToCalc(button)">{{button}}</div>
+                	</div>
                 </div>
             </div>
         </div>
